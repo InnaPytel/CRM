@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 public class LoginPageTest extends TestBase {
     @Test
@@ -15,6 +17,7 @@ public class LoginPageTest extends TestBase {
     loginPage.setLogin();
     MainPage mainPage=new MainPage(driver);
     mainPage.verifyHeader(driver,"Dashboard");
+      List<String>expectedModuls= Arrays.asList("Proposals","Estimates","Invoices","Payments","Credit Notes","Items");
+    mainPage.verifyModules(driver,6,expectedModuls);
     }
-
 }
